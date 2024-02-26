@@ -1,8 +1,6 @@
 let library = [];
 const readStatus = false;
 
-function  addBook ( (title, author) => {
+const addBook = (title, author) => {};
 
-})
-
-Promise
+Promise;
