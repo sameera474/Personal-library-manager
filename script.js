@@ -37,6 +37,11 @@ const removeBook = (title) => {
   }
 };
 
-const findBooksByAuthor = (author) => {};
+// filter the author's books in the library
+
+const findBooksByAuthor = (author) => {
+  return library.filter((book) => book.author === author);
+};
 
 const bookExits = (title) => {};
+5;
