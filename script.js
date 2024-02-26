@@ -27,14 +27,14 @@ const markAsRead = (title) => {
 // remove the book from the library
 const removeBook = (title) => {
   const bookIndex = library.indexOfBooks((book) => book.title === title);
-  while (bookIndex >= 1) {
-    let deleteBook = {
-      title: title,
-      author: author,
-      readStatus: false,
-    };
-    library.splice(deleteBook);
+  if (bookIndex !== -1) {
+    library.splice(bookIndex, 1);
   }
+};
+
+const listUnread = () => {
+  const unreadBooks = library.filter((book) => !book.readStatus);
+  return unreadBooks.map((book) => book.title);
 };
 
 // filter the author's books in the library
@@ -44,5 +44,5 @@ const findBooksByAuthor = (author) => {
 };
 // filter the book by using  title
 const bookExits = (title) => {
-  return library.map((book) => book.title).include(title);
+  return library.some((book) => book.title === title);
 };
